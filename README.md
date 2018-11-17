@@ -102,7 +102,7 @@ bcrypt 라는 보안모듈을 사용해 사용자의 비밀번호를 암호화�
 
 **bcrypt모듈의 compare함수**로 사용자가 입력한 password를 다시 해당하는 **해쉬값으로 변환해서 데이터베이스와 대조**하고 일치여부에 따라 로그인에 성공하고
 
-![joonseong](https://drive.google.com/open?id=1g104wixjmHDyRRTboIT6bEx96QIsOD82 "nodejs_project")
+![joonseong](http://drive.google.com/uc?export=view&id=1g104wixjmHDyRRTboIT6bEx96QIsOD82 "nodejs_project")
 
 passport의 **serializeUser로 세션에 식별자값을 추가**하는 방식입니다.
 
