@@ -26,7 +26,9 @@ nodejs와 몇가지 모듈들로 게시판을 만들어 보았습니다.
 rdbms는 mysql을 이용하였고 ER모델링을 하고 mysql의 Forward Engineering을 이용해서 스키마를 만들었습니다.
 
 테이블은 3개로 구성되어 있으며 user,board,comment테이블이 있습니다.
-특별한 부분은 없지만 user테이블의 admin컬럼은 추후 관리자권한을 부여한 사용자를 구분하기 위해 null로 컬럼을 만들어두었고, phone_number컬럼은 id와 비밀번호를 찾을수 있게 하기위해 추가한 컬럼명입니다.
+
+특별한 부분은 없지만 user테이블의 admin컬럼은 추후 관리자권한을 부여한 사용자를 구분하기 위해 null로 컬럼을 만들어두었고, phone_number컬럼은 id/비밀번호찾기 기능을 위해 추가한 컬럼입니다.
+
 board테이블의 user_email컬럼과 comment테이블의 user_email,board_id는 외래키로 사용됩니다.
 
 http://drive.google.com/uc?export=view&id=1oK41X9ZeDipIOmwHSQdDQIdj897USRmG
