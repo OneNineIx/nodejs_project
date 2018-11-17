@@ -5,13 +5,14 @@
 
 |목차|
 |:---|
-|[1. 프로젝트 시작](#chap-1)<br>[2. 게시판의 접근권한](#chap-2)<br>[3. connect-flash모듈 경고메세지](#chap-3)<br>[4. 회원가입](#chap-4)<br>[5. bcrypt모듈을 이용한 사용자정보 암호화](#chap-5)<br>[6. passport, express-session 모듈을 이용한 로그인구현](#chap-6)<br>[7. 로그인 여부에 따른 접근권한](#chap-7)<br>[8. 상태정보의 시각화](#chap-8)<br>[9. 보안_자바스크립트 인젝션](#chap-9)<br>[10. 보안_sql인젝션](#chap-10)<br>[11. 그 외 세부기능](#chap-10)<br>[12. 마이페이지](#chap-10)|
+|[1. 테이블의 구성](#chap-1)<br>[2. 게시판의 접근권한](#chap-2)<br>[3. connect-flash모듈 경고메세지](#chap-3)<br>[4. 회원가입](#chap-4)<br>[5. bcrypt모듈을 이용한 사용자정보 암호화](#chap-5)<br>[6. passport, express-session 모듈을 이용한 로그인구현](#chap-6)<br>[7. 로그인 여부에 따른 접근권한](#chap-7)<br>[8. 상태정보의 시각화](#chap-8)<br>[9. 보안_자바스크립트 인젝션](#chap-9)<br>[10. 보안_sql인젝션](#chap-10)<br>[11. 그 외 세부기능](#chap-10)<br>[12. 마이페이지](#chap-10)|
 
 
-<a id="chap-1"></a>
+
 ### 안녕하세요 황준성입니다.
 
 nodejs와 몇가지 모듈들로 게시판을 만들어 보았습니다.
+
 
 #### 테스트영상 youtube
 
@@ -19,8 +20,23 @@ nodejs와 몇가지 모듈들로 게시판을 만들어 보았습니다.
 
 ---------------------
 
-![joonseong](http://drive.google.com/uc?export=view&id=1MIQguagXzlIoYV6pfEj0b9xWmGYOs-vX "nodejs_project")
+<a id="chap-1"></a>
+
+## 테이블의 구성
+rdbms는 mysql을 이용하였고 ER모델링을 하고 mysql의 Forward Engineering을 이용해서 스키마를 만들었습니다.
+
+테이블은 3개로 구성되어 있으며 user,board,comment테이블이 있습니다.
+특별한 부분은 없지만 user테이블의 admin컬럼은 추후 관리자권한을 부여한 사용자를 구분하기 위해 null로 컬럼을 만들어두었고, phone_number컬럼은 id와 비밀번호를 찾을수 있게 하기위해 추가한 컬럼명입니다.
+board테이블의 user_email컬럼과 comment테이블의 user_email,board_id는 외래키로 사용됩니다.
+
+http://drive.google.com/uc?export=view&id=1oK41X9ZeDipIOmwHSQdDQIdj897USRmG
+![joonseong](http://drive.google.com/uc?export=view&id=1oK41X9ZeDipIOmwHSQdDQIdj897USRmG "nodejs_project")
+
+
+---------------------
 <a id="chap-2"></a>
+
+![joonseong](http://drive.google.com/uc?export=view&id=1MIQguagXzlIoYV6pfEj0b9xWmGYOs-vX "nodejs_project")
 
 로그인을 하지 않은상태에서도 게시판의 내용과 댓글은 확인할 수 있도록 하였구요.
 
