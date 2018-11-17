@@ -31,7 +31,7 @@ rdbms는 mysql을 이용하였고 ER모델링을 하고 mysql의 Forward Enginee
 
 board테이블의 user_email컬럼과 comment테이블의 user_email,board_id는 외래키로 사용됩니다.
 
-http://drive.google.com/uc?export=view&id=1oK41X9ZeDipIOmwHSQdDQIdj897USRmG
+
 ![joonseong](http://drive.google.com/uc?export=view&id=1oK41X9ZeDipIOmwHSQdDQIdj897USRmG "nodejs_project")
 
 
@@ -228,5 +228,5 @@ http://localhost:3000/topic/18;drop table board;
 ### 감사합니다.
 [처음으로](#chap-0)
 
-> 프로젝트 설명
+> 작성자의 블로그
 https://onenineix.github.io/2018/11/13/Nodejs-project/
