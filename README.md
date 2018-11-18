@@ -54,7 +54,7 @@ board테이블의 user_email컬럼과 comment테이블의 user_email,board_id는
 글의 수정이나 mypage로의 이동은 로그인한 상태에서만 가능하도록 구현하였는데요.
 
 또 그에대한 경고사항을 **connect-flash** 라는 모듈을 사용해서 
-세션에 상황에 맞는 경고메세지를 추가해 웹에 보여주도록 하였습니다.
+세션에 상황에 맞는 경고메세지를 추가해 사용자에게 응답하도록 하였습니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1-mQRQ1WeC5VpY1vM4eJTZiJlHCkfQa0o "nodejs_project")
 ![joonseong](http://drive.google.com/uc?export=view&id=1TNFTMU00JJHCoF6yoElGPBJhMaWq0HD4 "nodejs_project")
@@ -118,7 +118,7 @@ bcrypt 라는 보안모듈을 사용해 사용자의 비밀번호를 암호화�
 
 
 
-**bcrypt모듈의 compare함수**로 사용자가 입력한 password를 다시 해당하는 **해쉬값으로 변환해서 데이터베이스와 대조**하고 일치여부에 따라 로그인에 성공하고
+**bcrypt모듈의 compare함수**로 사용자가 입력한 password를 다시 해당하는 **해쉬값으로 변환해서 데이터베이스와 대조**하고 일치여부에 따라 로그인에 성공하면
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1g104wixjmHDyRRTboIT6bEx96QIsOD82 "nodejs_project")
 
@@ -128,7 +128,7 @@ passport의 **serializeUser로 세션에 식별자값을 추가**하는 방식�
 ![joonseong](http://drive.google.com/uc?export=view&id=1Tv_X2wtzselfMRks9RS3ROH1yDn9WZ9S "nodejs_project")
 
 
-passport의 **deserialize는 페이지를 이동할 때마다 호출**되는데요.
+passport의 **deserializeUser는 페이지를 이동할 때마다 호출**되는데요.
 세션에 저장된 정보로 데이터베이스와 **세션정보를 비교해 로그인 상태를 확인**합니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1fCkw6z2K8AbGax-PiAXUbDCxf2VYkxOP "nodejs_project")
@@ -151,7 +151,7 @@ passport의 **deserialize는 페이지를 이동할 때마다 호출**되는데�
 <a id="chap-8"></a>
 ## 상태정보의 시각화
 
-또 **statusUI라는 함수**를 만들어서 isOwner가 true일때 **로그인/회원가입 부분을 사용자의 email주소와 로그아웃 버튼으로 치환**하도록 하고 
+**statusUI라는 함수**를 만들어서 isOwner가 true일때 **로그인/회원가입 부분을 사용자의 email주소와 로그아웃 버튼으로 치환**하도록 하였고 
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1Aa9_5lXixZ44vve-6v1GfyEN1J7oDyG0 "nodejs_project")
 
@@ -168,11 +168,12 @@ passport의 **deserialize는 페이지를 이동할 때마다 호출**되는데�
 <a id="chap-9"></a>
 ## 자바스크립트 인젝션
 
-자바스크립트 인젝션을 예방하기 위해서 **sanitize-html**모듈을 사용하였는데요
+자바스크립트 인젝션을 예방하기 위해서 **sanitize-html**모듈을 사용하였습니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1PGM06TIlQORdmhu4W05_k4hB3FeJDY3p "nodejs_project")
 
-사용자가 입력한 정보에 **자바스크립트 코드가 있을경우 이것을 무시**하도록 하는 모듈입니다.
+이 모듈은 악의적인 자바스크립트 코드주입을 예방시켜 주는데요.
+사용자가 입력한 정보에 **자바스크립트 코드가 있을경우 이것을 escape**하도록 하는 모듈입니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1Lvj0ZW8odHqL3LzdIg6Euc43Ane2sK77 "nodejs_project")
 
@@ -183,12 +184,12 @@ passport의 **deserialize는 페이지를 이동할 때마다 호출**되는데�
 <a id="chap-10"></a>
 ## SQL인젝션
 
-mysql모듈에는 sql인젝션을 막을수 있는 기능이 포함되어 있는데요.
+mysql모듈에는 sql인젝션을 예방하는 기능이 포함되어 있는데요.
 ``` bash
 http://localhost:3000/topic/18;drop table board;
 ```
 
-이와같이 세미콜론 뒤에 쿼리를 작성하는 방식의 공격을 하더라도
+이와같이 WHERE 조건 부분에 세미콜론을 붙이고 뒤에 쿼리를 작성하는 방식의 공격을 하더라도
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1KsqFUfGprJArdu4cG3gtzF7B2Rx88y_L "nodejs_project")
 
@@ -217,7 +218,8 @@ http://localhost:3000/topic/18;drop table board;
 <a id="chap-12"></a>
 ## 마이페이지
 
-**내가 작성한 글과 댓글을 mypage에서 확인**할 수 있게하고 **해당하는 글로 이동**할 수도 있고 이곳에서 직접 **삭제**하는 것도 가능합니다.
+**내가 작성한 글과 댓글을 mypage에서 확인**할 수 있도록 하였는데요.
+이곳에서 내가 작성한 **해당하는 글로 이동**할 수도 있고 직접 **삭제**하는 것도 가능합니다.
 ![joonseong](http://drive.google.com/uc?export=view&id=1TmpmCRX1HCf0OdMHSIhFFoRscrG2Tmjv "nodejs_project")
 
 **회원정보의 수정**도 가능하도록 하였구요.
