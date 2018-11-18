@@ -87,7 +87,7 @@ emailCheck()가 **true를 반환하면** 경고메시지를 출력하고, **fals
 -----------------
 
 <a id="chap-5"></a>
-## bcrypt모듈을 이용한 사용자정보 암호화
+## [bcrypt](https://www.npmjs.com/package/bcrypt)모듈을 이용한 사용자정보 암호화
 
 그리고 그 모든 조건문을 벗어나면
 bcrypt 라는 보안모듈을 사용해 사용자의 비밀번호를 암호화해서 db에 저장하도록 했는데요.
