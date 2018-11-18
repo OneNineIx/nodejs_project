@@ -168,7 +168,7 @@ passport의 **deserializeUser는 페이지를 이동할 때마다 호출**되는
 <a id="chap-9"></a>
 ## 자바스크립트 인젝션
 
-자바스크립트 인젝션을 예방하기 위해서 **[sanitize-html](https://www.npmjs.com/package/sanitize-html)입니다.**모듈을 사용하였습니다.
+자바스크립트 인젝션을 예방하기 위해서 [sanitize-html](https://www.npmjs.com/package/sanitize-html) 모듈을 사용하였습니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1PGM06TIlQORdmhu4W05_k4hB3FeJDY3p "nodejs_project")
 
