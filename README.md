@@ -49,7 +49,7 @@ board테이블의 user_email컬럼과 comment테이블의 user_email,board_id는
 -----------------
 
 <a id="chap-3"></a>
-## connect-flash모듈 경고메세지
+## [connect-flash](https://www.npmjs.com/package/connect-flash)모듈 경고메세지
 
 글의 수정이나 mypage로의 이동은 로그인한 상태에서만 가능하도록 구현하였는데요.
 
@@ -105,7 +105,7 @@ bcrypt 라는 보안모듈을 사용해 사용자의 비밀번호를 암호화�
 ------------------
 
 <a id="chap-6"></a>
-## passport, express-session 모듈을 이용한 로그인구현
+## [passport](https://www.npmjs.com/package/passport), [express-session](https://www.npmjs.com/package/express-session) 모듈을 이용한 로그인구현
 
 로그인에 사용된 모듈은 **passport**와 **express-session**을 이용하였습니다.
 
@@ -184,7 +184,7 @@ passport의 **deserializeUser는 페이지를 이동할 때마다 호출**되는
 <a id="chap-10"></a>
 ## SQL인젝션
 
-mysql모듈에는 sql인젝션을 예방하는 기능이 포함되어 있는데요.
+[mysql](https://www.npmjs.com/package/mysql)모듈에는 sql인젝션을 예방하는 기능이 포함되어 있는데요.
 ``` bash
 http://localhost:3000/topic/18;drop table board;
 ```
