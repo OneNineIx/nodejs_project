@@ -168,16 +168,16 @@ passport의 **deserializeUser는 페이지를 이동할 때마다 호출**되는
 <a id="chap-9"></a>
 ## 자바스크립트 인젝션
 
-자바스크립트 인젝션을 예방하기 위해서 **sanitize-html**모듈을 사용하였습니다.
+자바스크립트 인젝션을 예방하기 위해서 **[sanitize-html](https://www.npmjs.com/package/sanitize-html)입니다.**모듈을 사용하였습니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1PGM06TIlQORdmhu4W05_k4hB3FeJDY3p "nodejs_project")
 
-이 모듈은 악의적인 자바스크립트 코드주입을 예방시켜 주는데요.
-사용자가 입력한 정보에 **자바스크립트 코드가 있을경우 이것을 escape**하도록 하는 모듈입니다.
+이 모듈은 악의적인 HTML태그입력을 예방시켜 주는데요.
+사용자가 입력한 정보에 **자바스크립트 코드가 있을경우 이것을 필터링**하도록 하여 서버를 보호합니다.
 
 ![joonseong](http://drive.google.com/uc?export=view&id=1Lvj0ZW8odHqL3LzdIg6Euc43Ane2sK77 "nodejs_project")
 
-이와같이 입력해주고 데이터베이스 전달했지만 내용이 표시되지 않고 자바스크립트 코드가 작동하지 않는걸 확인할 수 있죠.
+이와같이 입력해주고 데이터베이스에 전달했지만 태그부분이 표시되지 않고 자바스크립트 코드가 작동하지 않는걸 확인할 수 있죠.
 
 -----------------
 
@@ -230,5 +230,5 @@ http://localhost:3000/topic/18;drop table board;
 ### 감사합니다.
 [처음으로](#chap-0)
 
-> 작성자의 블로그
+> 블로그
 https://onenineix.github.io/2018/11/13/Nodejs-project/
