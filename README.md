@@ -23,7 +23,7 @@ nodejs와 몇가지 모듈들로 게시판을 만들어 보았습니다.
 <a id="chap-1"></a>
 
 ## 테이블의 구성
-rdbms는 mysql을 이용하였고 ER모델링을 하고 mysql의 Forward Engineering을 이용해서 스키마를 만들었습니다.
+rdbms는 mysql을 사용하였고, ER모델링 후 mysql의 Forward Engineering을 이용해서 스키마를 만들었습니다.
 
 테이블은 3개로 구성되어 있으며 user,board,comment테이블이 있습니다.
 
